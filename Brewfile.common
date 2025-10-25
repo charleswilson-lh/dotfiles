@@ -1,0 +1,93 @@
+# Common CLI packages for all platforms
+# This Brewfile contains command-line tools that work across macOS and Linux
+
+# ============================================
+# Taps
+# ============================================
+tap "homebrew/services"
+tap "norwoodj/tap"
+tap "sdkman/tap"
+
+# ============================================
+# Core Development Tools
+# ============================================
+brew "git"              # Version control
+brew "gh"               # GitHub CLI
+brew "curl"             # Transfer data with URLs
+brew "wget"             # Internet file retriever
+brew "jq"               # JSON processor
+brew "zsh"              # Modern shell
+brew "fish"             # Friendly interactive shell
+
+# ============================================
+# Shell Enhancements
+# ============================================
+brew "zsh-autosuggestions"
+brew "zsh-syntax-highlighting"
+brew "fzf"              # Fuzzy finder
+brew "thefuck"          # Corrects previous console command
+brew "tldr"             # Simplified man pages
+
+# ============================================
+# Modern Unix Replacements
+# ============================================
+brew "ripgrep"          # Fast grep alternative (rg)
+brew "bat"              # Better cat with syntax highlighting
+brew "eza"              # Modern ls replacement (exa fork)
+brew "fd"               # Fast find alternative
+brew "tree"             # Directory tree viewer
+
+# ============================================
+# Development Tools
+# ============================================
+brew "tmux"             # Terminal multiplexer
+brew "neovim"           # Modern Vim
+brew "watch"            # Execute program periodically
+brew "icdiff"           # Improved colored diff
+
+# ============================================
+# System Monitoring & Analysis
+# ============================================
+brew "htop"             # Interactive process viewer
+brew "btop"             # Modern resource monitor
+brew "ncdu"             # NCurses disk usage analyzer
+brew "duf"              # Modern df alternative
+
+# ============================================
+# Languages & Runtimes
+# ============================================
+brew "go"               # Go programming language
+brew "node"             # Node.js
+brew "python@3.13"
+brew "pyenv"            # Python version management
+brew "pyenv-virtualenv"
+
+# ============================================
+# Cloud & Infrastructure
+# ============================================
+brew "cloud-sql-proxy"
+brew "terraform"
+brew "helm"
+brew "kubectx"          # Fast Kubernetes context switching
+brew "kustomize"
+brew "norwoodj/tap/helm-docs"
+
+# ============================================
+# Build Tools
+# ============================================
+brew "gradle"
+brew "maven"
+brew "maven-completion"
+brew "sdkman/tap/sdkman-cli"
+
+# ============================================
+# Media & Utilities
+# ============================================
+brew "exiftool"         # Read/write meta info in files
+brew "ffmpeg"           # Audio/video processing
+brew "imagemagick"      # Image manipulation
+brew "gource"           # Version control visualization
+brew "gemini-cli"
+brew "yamlfmt"          # YAML formatter
+brew "sponge"           # Soak up stdin and write to file
+brew "tomcat@8"

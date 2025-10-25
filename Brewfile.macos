@@ -1,0 +1,56 @@
+# macOS-specific packages (Casks and GUI applications)
+# These will only be installed on macOS
+
+# ============================================
+# Development Tools
+# ============================================
+cask "iterm2"                   # Terminal emulator
+cask "sublime-text"             # Text editor
+cask "visual-studio-code"
+cask "bruno"                    # API client
+
+# ============================================
+# Communication
+# ============================================
+cask "discord"
+cask "whatsapp"
+
+# ============================================
+# Productivity & Utilities
+# ============================================
+cask "rectangle"               # Window manager
+cask "qlmarkdown"              # QuickLook plugin for Markdown
+cask "obsidian"                # Knowledge management
+
+# ============================================
+# Media & Entertainment
+# ============================================
+cask "firefox"
+cask "steam"
+cask "vlc"
+
+# ============================================
+# VS Code Extensions
+# ============================================
+vscode "docker.docker"
+vscode "ms-azuretools.vscode-containers"
+vscode "ms-azuretools.vscode-docker"
+vscode "ms-toolsai.jupyter"
+vscode "ms-toolsai.jupyter-keymap"
+vscode "ms-toolsai.jupyter-renderers"
+vscode "ms-toolsai.vscode-jupyter-cell-tags"
+vscode "ms-toolsai.vscode-jupyter-slideshow"
+vscode "ms-vscode-remote.remote-containers"
+
+# ============================================
+# Go Tools
+# ============================================
+# Note: Go tools are installed via `go install` command during setup
+# Basic tools (godoc) are installed automatically by install.sh
+# Additional tools can be installed with: ./install-go-tools.sh
+#
+# Included in install-go-tools.sh:
+# - github.com/onsi/ginkgo/v2/ginkgo
+# - github.com/golangci/golangci-lint/cmd/golangci-lint
+# - go.uber.org/mock/mockgen
+# - github.com/swaggo/swag/cmd/swag

@@ -1,0 +1,17 @@
+[push]
+	autoSetupRemote = true
+
+[user]
+	name = Charles Wilson
+	email = charleswilson1991@googlemail.com
+
+[core]
+	editor = subl --wait
+
+# Add your custom git configuration below
+# Examples:
+# [alias]
+#     st = status
+#     co = checkout
+#     br = branch
+#     ci = commit

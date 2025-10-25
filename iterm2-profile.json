@@ -1,0 +1,127 @@
+{
+  "Profiles": [
+    {
+      "Name": "Dotfiles - Agnoster",
+      "Guid": "dotfiles-agnoster-profile",
+      "Dynamic Profile Parent Name": "Default",
+      "Badge Text": "",
+      "Working Directory": "~",
+      "Use Non-ASCII Font": true,
+      "Normal Font": "MesloLGS-NF-Regular 13",
+      "Non Ascii Font": "MesloLGS-NF-Regular 13",
+      "Horizontal Spacing": 1,
+      "Vertical Spacing": 1,
+      "Use Bold Font": true,
+      "Use Bright Bold": true,
+      "Use Italic Font": true,
+      "ASCII Anti Aliased": true,
+      "Non-ASCII Anti Aliased": true,
+      "Cursor Type": 2,
+      "Cursor Text Color": {
+        "Red Component": 0,
+        "Green Component": 0,
+        "Blue Component": 0
+      },
+      "Cursor Color": {
+        "Red Component": 1,
+        "Green Component": 1,
+        "Blue Component": 1
+      },
+      "Foreground Color": {
+        "Red Component": 0.8,
+        "Green Component": 0.8,
+        "Blue Component": 0.8
+      },
+      "Background Color": {
+        "Red Component": 0.11764705882352941,
+        "Green Component": 0.11764705882352941,
+        "Blue Component": 0.11764705882352941
+      },
+      "Bold Color": {
+        "Red Component": 1,
+        "Green Component": 1,
+        "Blue Component": 1
+      },
+      "Ansi 0 Color": {
+        "Red Component": 0,
+        "Green Component": 0,
+        "Blue Component": 0
+      },
+      "Ansi 1 Color": {
+        "Red Component": 0.8,
+        "Green Component": 0,
+        "Blue Component": 0
+      },
+      "Ansi 2 Color": {
+        "Red Component": 0,
+        "Green Component": 0.8,
+        "Blue Component": 0
+      },
+      "Ansi 3 Color": {
+        "Red Component": 0.8,
+        "Green Component": 0.8,
+        "Blue Component": 0
+      },
+      "Ansi 4 Color": {
+        "Red Component": 0.2,
+        "Green Component": 0.4,
+        "Blue Component": 0.8
+      },
+      "Ansi 5 Color": {
+        "Red Component": 0.8,
+        "Green Component": 0,
+        "Blue Component": 0.8
+      },
+      "Ansi 6 Color": {
+        "Red Component": 0,
+        "Green Component": 0.8,
+        "Blue Component": 0.8
+      },
+      "Ansi 7 Color": {
+        "Red Component": 0.8,
+        "Green Component": 0.8,
+        "Blue Component": 0.8
+      },
+      "Ansi 8 Color": {
+        "Red Component": 0.3,
+        "Green Component": 0.3,
+        "Blue Component": 0.3
+      },
+      "Ansi 9 Color": {
+        "Red Component": 1,
+        "Green Component": 0.3,
+        "Blue Component": 0.3
+      },
+      "Ansi 10 Color": {
+        "Red Component": 0.3,
+        "Green Component": 1,
+        "Blue Component": 0.3
+      },
+      "Ansi 11 Color": {
+        "Red Component": 1,
+        "Green Component": 1,
+        "Blue Component": 0.3
+      },
+      "Ansi 12 Color": {
+        "Red Component": 0.5,
+        "Green Component": 0.7,
+        "Blue Component": 1
+      },
+      "Ansi 13 Color": {
+        "Red Component": 1,
+        "Green Component": 0.5,
+        "Blue Component": 1
+      },
+      "Ansi 14 Color": {
+        "Red Component": 0.5,
+        "Green Component": 1,
+        "Blue Component": 1
+      },
+      "Ansi 15 Color": {
+        "Red Component": 1,
+        "Green Component": 1,
+        "Blue Component": 1
+      }
+    }
+  ]
+}
