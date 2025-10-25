@@ -224,7 +224,12 @@ main() {
     # Run OS-specific setup
     print_step "Running $OS-specific setup..."
     if [[ -f "$SCRIPT_DIR/${OS}.sh" ]]; then
-        bash "$SCRIPT_DIR/${OS}.sh"
+        if bash "$SCRIPT_DIR/${OS}.sh"; then
+            print_success "OS-specific setup complete"
+        else
+            echo -e "${YELLOW}⚠ Warning: Some OS-specific settings may not have applied${NC}"
+            echo -e "${YELLOW}  This is normal and the installation will continue${NC}"
+        fi
     else
         echo -e "${YELLOW}No ${OS}.sh found, skipping OS-specific setup${NC}"
     fi

@@ -3,12 +3,32 @@
 # macOS System Settings Configuration
 # Customize your macOS system settings here
 
-set -e
+# Colors for output
+YELLOW='\033[1;33m'
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+NC='\033[0m' # No Color
 
 echo "Configuring macOS system settings..."
 
+# Function to safely set defaults with error handling
+safe_defaults() {
+    if ! defaults write "$@" 2>/dev/null; then
+        echo -e "${YELLOW}⚠ Warning: Could not set preference for $1${NC}" >&2
+        return 1
+    fi
+    return 0
+}
+
 # Close any open System Preferences panes
-osascript -e 'tell application "System Preferences" to quit'
+osascript -e 'tell application "System Preferences" to quit' 2>/dev/null || true
+
+# Close Safari if running (required to modify Safari preferences)
+if pgrep -x "Safari" > /dev/null; then
+    echo "Closing Safari to apply preferences..."
+    osascript -e 'tell application "Safari" to quit' 2>/dev/null || true
+    sleep 2
+fi
 
 ###############################################################################
 # General UI/UX                                                               #
@@ -85,10 +105,14 @@ defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
 
 # Show the ~/Library folder
-chflags nohidden ~/Library
+chflags nohidden ~/Library 2>/dev/null || echo -e "${YELLOW}⚠ Warning: Could not unhide ~/Library folder${NC}"
 
-# Show the /Volumes folder
-sudo chflags nohidden /Volumes
+# Show the /Volumes folder (requires sudo)
+if sudo -n true 2>/dev/null; then
+    sudo chflags nohidden /Volumes 2>/dev/null || echo -e "${YELLOW}⚠ Warning: Could not unhide /Volumes folder${NC}"
+else
+    echo -e "${YELLOW}⚠ Warning: Skipping /Volumes unhide (requires sudo authentication)${NC}"
+fi
 
 # Add Home folder to Finder sidebar favorites
 sfltool add-item com.apple.LSSharedFileList.FavoriteItems file://${HOME}/ 2>/dev/null || true
@@ -126,16 +150,16 @@ defaults write com.apple.dock expose-animation-duration -float 0.1
 ###############################################################################
 
 # Privacy: don't send search queries to Apple
-defaults write com.apple.Safari UniversalSearchEnabled -bool false
-defaults write com.apple.Safari SuppressSearchSuggestions -bool true
+safe_defaults com.apple.Safari UniversalSearchEnabled -bool false
+safe_defaults com.apple.Safari SuppressSearchSuggestions -bool true
 
 # Show the full URL in the address bar (note: this still hides the scheme)
-defaults write com.apple.Safari ShowFullURLInSmartSearchField -bool true
+safe_defaults com.apple.Safari ShowFullURLInSmartSearchField -bool true
 
 # Enable the Develop menu and the Web Inspector in Safari
-defaults write com.apple.Safari IncludeDevelopMenu -bool true
-defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
-defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true
+safe_defaults com.apple.Safari IncludeDevelopMenu -bool true
+safe_defaults com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
+safe_defaults com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true
 
 ###############################################################################
 # Terminal & iTerm 2                                                          #
@@ -197,5 +221,16 @@ defaults write com.apple.screencapture disable-shadow -bool true
 # Done                                                                        #
 ###############################################################################
 
-echo "macOS settings configured. Note: Some changes require a logout/restart to take effect."
-echo "You may need to restart Finder with: killall Finder"
+echo ""
+echo -e "${GREEN}✓ macOS settings configuration complete!${NC}"
+echo ""
+echo -e "Note: Some changes require a logout/restart to take effect."
+echo -e "Finder will be restarted automatically by the install script."
+echo ""
+if [ -n "$warning_count" ] && [ "$warning_count" -gt 0 ]; then
+    echo -e "${YELLOW}Some preferences could not be set (see warnings above)${NC}"
+    echo -e "This is normal for certain system preferences that require:"
+    echo -e "  • Applications to be closed"
+    echo -e "  • Full Disk Access permissions"
+    echo -e "  • System Integrity Protection adjustments"
+fi
